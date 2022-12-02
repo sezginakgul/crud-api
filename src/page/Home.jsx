@@ -9,7 +9,7 @@ import { Typography } from "@mui/material";
 const Home = () => {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState([]);
-  const url = "https://63878fa2e399d2e47302d660.mockapi.io/crud";
+  const url = process.env.REACT_APP_url;
   const submitHandle = async (value) => {
     try {
       await axios.post(`${url}`, value);
@@ -20,7 +20,6 @@ const Home = () => {
   };
 
   const getHandle = async () => {
-    const url = "https://63878fa2e399d2e47302d660.mockapi.io/crud";
     try {
       const { data } = await axios(url);
       setData(data);
@@ -29,7 +28,6 @@ const Home = () => {
     }
   };
   const putHandle = async (value) => {
-    const url = "https://63878fa2e399d2e47302d660.mockapi.io/crud";
     try {
       await axios.put(`${url}/${data[0].id}`, value);
       getHandle();
