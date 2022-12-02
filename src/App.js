@@ -1,11 +1,12 @@
 import "./App.css";
-import FormComponent from "./components/Form";
 import Home from "./page/Home";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
       <Home />
+      <ToastContainer />
     </div>
   );
 }

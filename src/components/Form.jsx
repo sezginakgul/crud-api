@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Formik, Form } from "formik";
 import * as yup from "yup";
+import { toastGreenNotify } from "../helpers/toastNotify";
 
 const loginSchema = yup.object().shape({
   username: yup
@@ -50,6 +51,7 @@ const FormComponent = ({ submitHandle, data, deleteHandle, setOpen }) => {
             submitHandle(values);
             actions.resetForm();
             actions.setSubmitting(false);
+            toastGreenNotify("Registered successfully!");
           }}
         >
           {({ values, handleChange, handleBlur, touched, errors }) => (

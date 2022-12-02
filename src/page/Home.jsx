@@ -5,6 +5,7 @@ import axios from "axios";
 import UpdateModal from "../components/UpdateModal";
 import NavBar from "../components/Navbar";
 import { Typography } from "@mui/material";
+import { toastBlueNotify, toastRedNotify } from "../helpers/toastNotify";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -31,6 +32,7 @@ const Home = () => {
     try {
       await axios.put(`${url}/${data[0].id}`, value);
       getHandle();
+      toastBlueNotify("Updated user successfully!");
     } catch (error) {
       console.log(error);
     }
@@ -40,6 +42,7 @@ const Home = () => {
     try {
       await axios.delete(`${url}/${data[0].id}`);
       getHandle();
+      toastRedNotify("Deleted user successfully!");
     } catch (error) {
       console.log(error);
     }
